@@ -6,15 +6,25 @@ import {
 } from './styles'
 import { ShoppingCart } from 'phosphor-react'
 import { Counter } from '../Counter'
+import { useCoffee } from '../../../context/CoffeeContext'
+import { formatCurrency } from '../../../utilities/formatCurrency'
 
 interface IProps {
+  id: number
   img: string
   title: string
   description: string
   type: string
 }
 
-export const CoffeeCard = ({ img, title, description, type }: IProps) => {
+export const CoffeeCard = ({
+  id,
+  img,
+  title,
+  description,
+  type,
+  price,
+}: IProps) => {
   return (
     <CoffeeCardContainer>
       <img src={img} alt="" />
@@ -23,11 +33,11 @@ export const CoffeeCard = ({ img, title, description, type }: IProps) => {
       <h3>{description}</h3>
       <BuyContainer>
         <span>
-          R$ <strong>9,90</strong>
+          R$ <strong>{formatCurrency(price)}</strong>
         </span>
         <ActionsContainer>
-          <Counter />
-          <CartButton>
+          <Counter id={id} />
+          <CartButton href="/CheckOut">
             <ShoppingCart />
           </CartButton>
         </ActionsContainer>

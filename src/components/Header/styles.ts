@@ -38,8 +38,7 @@ export const InformationContainer = styled.div`
       color: var(--yellow-dark);
     }
   }
-  a::after {
-    content: attr(aftercontent);
+  .cart-count-info {
     width: 1rem;
     display: flex;
     justify-content: center;

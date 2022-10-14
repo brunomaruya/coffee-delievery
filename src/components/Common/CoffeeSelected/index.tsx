@@ -1,4 +1,5 @@
 import { Trash } from 'phosphor-react'
+import { useCoffee } from '../../../context/CoffeeContext'
 import { Counter } from '../Counter'
 import {
   CoffeeSelectedWrapper,
@@ -7,16 +8,20 @@ import {
   RemoveButton,
 } from './styles'
 
-export const CoffeeSelected = ({ img, title }) => {
+import coffeeItems from '../../../data/coffeeItems.json'
+
+export const CoffeeSelected = ({ id }) => {
+  const { removeCoffee } = useCoffee()
+  const coffee = coffeeItems.find((c) => c.id === id)
   return (
     <CoffeeSelectedWrapper>
       <CoffeeInfo>
-        <img src={img} alt="" />
+        <img src={coffee.img} alt="" />
         <div className="details">
-          <h1>{title}</h1>
+          <h1>{coffee.title}</h1>
           <ActionsContainer>
-            <Counter />
-            <RemoveButton>
+            <Counter id={id} />
+            <RemoveButton onClick={() => removeCoffee(id)}>
               <Trash /> Remover
             </RemoveButton>
           </ActionsContainer>

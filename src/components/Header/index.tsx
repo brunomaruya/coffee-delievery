@@ -2,16 +2,10 @@ import { HeaderContainer, InformationContainer, Local } from './styles'
 import logo from '../../assets/logo.png'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import { Link } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { useCoffee } from '../../context/CoffeeContext'
 
 export const Header = () => {
-  const cartRef = useRef(null)
-  const [cartProductsCounter, setCartProductsCounter] = useState(0)
-  useEffect(() => {
-    const cartAfter = window.getComputedStyle(cartRef.current, '::after')
-    console.log(cartAfter.content)
-  }, [])
-
+  const { coffeeQuantity } = useCoffee()
   return (
     <HeaderContainer>
       <a href="/">
@@ -24,8 +18,13 @@ export const Header = () => {
           <span>Porto Alegre,RS</span>
         </Local>
 
-        <Link ref={cartRef} to="/CheckOut" aftercontent={cartProductsCounter}>
+        <Link to="/CheckOut">
           <ShoppingCart />
+          {coffeeQuantity === 0 ? (
+            <div></div>
+          ) : (
+            <div className="cart-count-info">{coffeeQuantity}</div>
+          )}
         </Link>
       </InformationContainer>
     </HeaderContainer>

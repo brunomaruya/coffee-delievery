@@ -8,15 +8,7 @@ export const CoffeeList = () => {
       <h1>Nossos</h1>
       <ul>
         {coffeeItems.map((coffee) => {
-          return (
-            <CoffeeCard
-              key={coffee.id}
-              img={coffee.img}
-              title={coffee.title}
-              description={coffee.description}
-              type={coffee.type}
-            />
-          )
+          return <CoffeeCard key={coffee.id} {...coffee} />
         })}
       </ul>
     </CoffeeListContainer>

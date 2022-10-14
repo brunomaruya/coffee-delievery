@@ -70,7 +70,7 @@ export const ActionsContainer = styled.div`
   gap: 1rem;
 `
 
-export const CartButton = styled.button`
+export const CartButton = styled.a`
   width: 2.375rem;
   height: 2.375rem;
   display: flex;
