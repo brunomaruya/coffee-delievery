@@ -1,4 +1,3 @@
-import { Trash } from 'phosphor-react'
 import {
   CoffeeCardContainer,
   CoffeeCardWrapper,
@@ -12,7 +11,7 @@ import { useCoffee } from '../../../../context/CoffeeContext'
 import { formatCurrency } from '../../../../utilities/formatCurrency'
 import coffeeItems from '../../../../data/coffeeItems.json'
 
-export const CoffeeCard = () => {
+export const CoffeeCard = ({ error, handleSubmit }) => {
   const { coffees } = useCoffee()
   const totalDeItens = coffees.reduce((total, coffee) => {
     const coffeeInCart = coffeeItems.find((c) => c.id === coffee.id)
@@ -45,7 +44,10 @@ export const CoffeeCard = () => {
             <span>{`R$ ${formatCurrency(total)}`}</span>
           </div>
         </BillContainer>
-        <ConfirmButton href="/Success">Confirmar Pedido</ConfirmButton>
+        {error && <p>Error message here</p>}
+        <ConfirmButton type="submit" onClick={handleSubmit}>
+          Confirmar Pedido
+        </ConfirmButton>
       </CoffeeCardWrapper>
     </CoffeeCardContainer>
   )

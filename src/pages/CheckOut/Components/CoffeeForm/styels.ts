@@ -33,7 +33,6 @@ export const InputsContainer = styled.div`
   gap: 1rem;
 
   .input {
-    padding: 0.75rem;
     background: var(--base-input);
     color: var(--base-label);
     font-size: 0.875rem;
@@ -61,12 +60,6 @@ export const InputsContainer = styled.div`
     }
     &.uf {
       grid-area: uf;
-    }
-    input {
-      width: 100%;
-      background: transparent;
-      border: none;
-      outline: none;
     }
     span {
       font-style: italic;
@@ -105,4 +98,12 @@ export const PayMethod = styled.div`
   &:hover {
     background: var(--base-hover);
   }
+`
+export const StyledInput = styled.input`
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  outline: none;
 `

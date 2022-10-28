@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CheckOutContainer = styled.section`
+export const CheckOutContainer = styled.form`
   width: var(--width);
   display: grid;
   grid-template-columns: 3fr 2fr;

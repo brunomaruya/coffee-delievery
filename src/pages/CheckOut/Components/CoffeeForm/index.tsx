@@ -4,7 +4,11 @@ import {
   CreditCard,
   Bank,
   Money,
+  SelectionForeground,
 } from 'phosphor-react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+
 import {
   AdressContainer,
   InputsContainer,
@@ -12,9 +16,22 @@ import {
   PayMethodWrapper,
   PayMethod,
   CoffeeFormContainer,
+  StyledInput,
 } from './styels'
 
-export const CoffeeForm = () => {
+const cardSelect = {
+  border: '1px solid var(--purple)',
+  background: 'var(--purple-light)',
+}
+
+const styles = {
+  inputOnFocus: { border: '1px solid var(--yellow-dark)' },
+  inputOnBlur: { background: '#4b6cd5' },
+}
+export const CoffeeForm = ({ state, handleInput }) => {
+  const [selected, setSelected] = useState(0)
+  const [focus, setFocus] = useState(-1)
+
   return (
     <CoffeeFormContainer>
       <h1>Complete seu pedido</h1>
@@ -27,28 +44,104 @@ export const CoffeeForm = () => {
           </div>
         </header>
         <InputsContainer>
-          <div className="input cep">
-            <input type="text" placeholder="CEP" />
+          <div
+            className="input cep"
+            style={{ ...(focus === 0 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="Cep"
+              name="cep"
+              value={state.cep}
+              onChange={handleInput}
+              onClick={() => setFocus(0)}
+              onBlur={() => setFocus(-1)}
+            />
           </div>
-          <div className="input rua">
-            <input type="text" placeholder="Rua" />
+          <div
+            className="input rua"
+            style={{ ...(focus === 1 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="Rua"
+              name="rua"
+              value={state.rua}
+              onChange={handleInput}
+              onClick={() => setFocus(1)}
+              onBlur={() => setFocus(-1)}
+            />
           </div>
-          <div className="input numero">
-            <input type="text" placeholder="Número" />
+          <div
+            className="input numero"
+            style={{ ...(focus === 2 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="Número"
+              name="numero"
+              value={state.numero}
+              onChange={handleInput}
+              onClick={() => setFocus(2)}
+              onBlur={() => setFocus(-1)}
+            />
           </div>
-          <div className="input complemento">
-            <input type="text" placeholder="Complemento" />
+          <div
+            className="input complemento"
+            style={{ ...(focus === 3 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="Complemento"
+              name="complemento"
+              value={state.complemento}
+              onChange={handleInput}
+              onClick={() => setFocus(3)}
+              onBlur={() => setFocus(-1)}
+            />
             <span>Opcional</span>
           </div>
-          <div className="input bairro">
-            <input type="text" placeholder="Bairro" />
+          <div
+            className="input bairro"
+            style={{ ...(focus === 4 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="Bairro"
+              name="bairro"
+              value={state.bairro}
+              onChange={handleInput}
+              onClick={() => setFocus(4)}
+              onBlur={() => setFocus(-1)}
+            />
           </div>
-          <div className="input cidade">
-            {' '}
-            <input type="text" placeholder="Cidade" />
+          <div
+            className="input cidade"
+            style={{ ...(focus === 5 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="Cidade"
+              name="cidade"
+              value={state.cidade}
+              onChange={handleInput}
+              onClick={() => setFocus(5)}
+              onBlur={() => setFocus(-1)}
+            />
           </div>
-          <div className="input uf">
-            <input type="text" placeholder="UF" />
+          <div
+            className="input uf"
+            style={{ ...(focus === 6 && styles.inputOnFocus) }}
+          >
+            <StyledInput
+              type="text"
+              placeholder="UF"
+              name="uf"
+              value={state.uf}
+              onChange={handleInput}
+              onClick={() => setFocus(6)}
+              onBlur={() => setFocus(-1)}
+            />
           </div>
         </InputsContainer>
       </AdressContainer>
@@ -63,14 +156,23 @@ export const CoffeeForm = () => {
           </div>
         </header>
         <PayMethodWrapper>
-          <PayMethod>
+          <PayMethod
+            style={{ ...(selected === 0 && cardSelect) }}
+            onClick={() => setSelected(0)}
+          >
             <CreditCard />
             <span>cartao de credito</span>
           </PayMethod>
-          <PayMethod>
+          <PayMethod
+            style={{ ...(selected === 1 && cardSelect) }}
+            onClick={() => setSelected(1)}
+          >
             <Bank /> <span>cartao de debito</span>
           </PayMethod>
-          <PayMethod>
+          <PayMethod
+            style={{ ...(selected === 2 && cardSelect) }}
+            onClick={() => setSelected(2)}
+          >
             <Money /> <span>dinheiro</span>
           </PayMethod>
         </PayMethodWrapper>
