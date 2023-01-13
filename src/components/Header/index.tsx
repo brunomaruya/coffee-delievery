@@ -1,5 +1,5 @@
 import { HeaderContainer, InformationContainer, Local } from './styles';
-import logo from '../../../public/logo.png';
+// import logo from '../../../public/logo.png';
 import { MapPin, ShoppingCart } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import { useCoffee } from '../../context/CoffeeContext';
@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <a href="/">
-        <img src={logo} alt="" />
+        <img src={'../../../public/logo.png'} alt="" />
       </a>
 
       <InformationContainer>
