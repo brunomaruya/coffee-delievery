@@ -1,5 +1,5 @@
 import { HeaderContainer, InformationContainer, Local } from './styles';
-import logo from '../../../public/logo.png';
+import logo from '../../assets/Logo.png';
 import { MapPin, ShoppingCart } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import { useCoffee } from '../../context/CoffeeContext';
