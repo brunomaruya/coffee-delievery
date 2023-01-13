@@ -1,13 +1,13 @@
-import { ShoppingCart, Package, Clock, Coffee } from 'phosphor-react'
-import { Item } from '../../../../components/Common/Item'
-import { IntroContainer, Content, ItemsContainer } from './styles'
-import coffeImage from '../../../../assets/Imagem.png'
+import { ShoppingCart, Package, Clock, Coffee } from 'phosphor-react';
+import { Item } from '../../../../components/Common/Item';
+import { IntroContainer, Content, ItemsContainer } from './styles';
+import coffeImage from '../../../../assets/Imagem.png';
 
 export const Intro = () => {
   return (
     <IntroContainer>
       <Content>
-        <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+        <h1>aaEncontre o café perfeito para qualquer hora do dia</h1>
         <h6>
           Com o Coffee Delivery você recebe seu café onde estiver, a <br />{' '}
           qualquer hora
@@ -37,5 +37,5 @@ export const Intro = () => {
       </Content>
       <img src={coffeImage} alt="" />
     </IntroContainer>
-  )
-}
+  );
+};
