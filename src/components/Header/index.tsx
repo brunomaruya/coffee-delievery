@@ -1,11 +1,11 @@
-import { HeaderContainer, InformationContainer, Local } from './styles'
-import logo from '../../assets/logo.png'
-import { MapPin, ShoppingCart } from 'phosphor-react'
-import { Link } from 'react-router-dom'
-import { useCoffee } from '../../context/CoffeeContext'
+import { HeaderContainer, InformationContainer, Local } from './styles';
+import logo from '../../../public/logo.png';
+import { MapPin, ShoppingCart } from 'phosphor-react';
+import { Link } from 'react-router-dom';
+import { useCoffee } from '../../context/CoffeeContext';
 
 export const Header = () => {
-  const { coffeeQuantity } = useCoffee()
+  const { coffeeQuantity } = useCoffee();
   return (
     <HeaderContainer>
       <a href="/">
@@ -28,5 +28,5 @@ export const Header = () => {
         </Link>
       </InformationContainer>
     </HeaderContainer>
-  )
-}
+  );
+};
