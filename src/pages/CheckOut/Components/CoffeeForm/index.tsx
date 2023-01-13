@@ -4,10 +4,8 @@ import {
   CreditCard,
   Bank,
   Money,
-  SelectionForeground,
-} from 'phosphor-react'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+} from 'phosphor-react';
+import { useState } from 'react';
 
 import {
   AdressContainer,
@@ -17,20 +15,20 @@ import {
   PayMethod,
   CoffeeFormContainer,
   StyledInput,
-} from './styels'
+} from './styels';
 
 const cardSelect = {
   border: '1px solid var(--purple)',
   background: 'var(--purple-light)',
-}
+};
 
 const styles = {
   inputOnFocus: { border: '1px solid var(--yellow-dark)' },
   inputOnBlur: { background: '#4b6cd5' },
-}
-export const CoffeeForm = ({ state, handleInput }) => {
-  const [selected, setSelected] = useState(0)
-  const [focus, setFocus] = useState(-1)
+};
+export const CoffeeForm = ({ state, handleInput }: any) => {
+  const [selected, setSelected] = useState(0);
+  const [focus, setFocus] = useState(-1);
 
   return (
     <CoffeeFormContainer>
@@ -178,5 +176,5 @@ export const CoffeeForm = ({ state, handleInput }) => {
         </PayMethodWrapper>
       </PayMethodContainer>
     </CoffeeFormContainer>
-  )
-}
+  );
+};

@@ -3,18 +3,19 @@ import {
   BuyContainer,
   CartButton,
   CoffeeCardContainer,
-} from './styles'
-import { ShoppingCart } from 'phosphor-react'
-import { Counter } from '../Counter'
-import { useCoffee } from '../../../context/CoffeeContext'
-import { formatCurrency } from '../../../utilities/formatCurrency'
+} from './styles';
+import { ShoppingCart } from 'phosphor-react';
+import { Counter } from '../Counter';
+import { useCoffee } from '../../../context/CoffeeContext';
+import { formatCurrency } from '../../../utilities/formatCurrency';
 
 interface IProps {
-  id: number
-  img: string
-  title: string
-  description: string
-  type: string
+  id: number;
+  img: string;
+  title: string;
+  description: string;
+  type: string;
+  price: number;
 }
 
 export const CoffeeCard = ({
@@ -43,5 +44,5 @@ export const CoffeeCard = ({
         </ActionsContainer>
       </BuyContainer>
     </CoffeeCardContainer>
-  )
-}
+  );
+};

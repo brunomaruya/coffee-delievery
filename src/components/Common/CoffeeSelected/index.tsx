@@ -1,24 +1,28 @@
-import { Trash } from 'phosphor-react'
-import { useCoffee } from '../../../context/CoffeeContext'
-import { Counter } from '../Counter'
+import { Trash } from 'phosphor-react';
+import { useCoffee } from '../../../context/CoffeeContext';
+import { Counter } from '../Counter';
 import {
   CoffeeSelectedWrapper,
   CoffeeInfo,
   ActionsContainer,
   RemoveButton,
-} from './styles'
+} from './styles';
 
-import coffeeItems from '../../../data/coffeeItems.json'
+import coffeeItems from '../../../data/coffeeItems.json';
 
-export const CoffeeSelected = ({ id }) => {
-  const { removeCoffee } = useCoffee()
-  const coffee = coffeeItems.find((c) => c.id === id)
+interface ICoffeSelected {
+  id: number;
+}
+
+export const CoffeeSelected = ({ id }: ICoffeSelected) => {
+  const { removeCoffee } = useCoffee();
+  const coffee = coffeeItems.find((c) => c.id === id);
   return (
     <CoffeeSelectedWrapper>
       <CoffeeInfo>
-        <img src={coffee.img} alt="" />
+        <img src={coffee ? coffee.img : ''} alt="" />
         <div className="details">
-          <h1>{coffee.title}</h1>
+          <h1>{coffee ? coffee.title : ''}</h1>
           <ActionsContainer>
             <Counter id={id} />
             <RemoveButton onClick={() => removeCoffee(id)}>
@@ -29,5 +33,5 @@ export const CoffeeSelected = ({ id }) => {
       </CoffeeInfo>
       <span>R$ 9,90</span>
     </CoffeeSelectedWrapper>
-  )
-}
+  );
+};

@@ -4,29 +4,35 @@ import {
   CoffeesSelectedContainer,
   BillContainer,
   ConfirmButton,
-} from './styles'
+} from './styles';
 
-import { CoffeeSelected } from '../../../../components/Common/CoffeeSelected'
-import { useCoffee } from '../../../../context/CoffeeContext'
-import { formatCurrency } from '../../../../utilities/formatCurrency'
-import coffeeItems from '../../../../data/coffeeItems.json'
+import { CoffeeSelected } from '../../../../components/Common/CoffeeSelected';
+import { useCoffee } from '../../../../context/CoffeeContext';
+import { formatCurrency } from '../../../../utilities/formatCurrency';
+import coffeeItems from '../../../../data/coffeeItems.json';
 
-export const CoffeeCard = ({ error, handleSubmit }) => {
-  const { coffees } = useCoffee()
+export const CoffeeCard = ({
+  error,
+  handleSubmit,
+}: {
+  error: any;
+  handleSubmit: any;
+}) => {
+  const { coffees } = useCoffee();
   const totalDeItens = coffees.reduce((total, coffee) => {
-    const coffeeInCart = coffeeItems.find((c) => c.id === coffee.id)
-    return total + (coffeeInCart?.price || 0) * coffee.quantity
-  }, 0)
+    const coffeeInCart = coffeeItems.find((c) => c.id === coffee.id);
+    return total + (coffeeInCart?.price || 0) * coffee.quantity;
+  }, 0);
 
-  const entrega = 3.5
-  const total = totalDeItens + entrega
+  const entrega = 3.5;
+  const total = totalDeItens + entrega;
   return (
     <CoffeeCardContainer>
       <h1>Cafés selecionados</h1>
       <CoffeeCardWrapper>
         <CoffeesSelectedContainer>
           {coffees.map((coffee) => {
-            return <CoffeeSelected key={coffee.id} {...coffee} />
+            return <CoffeeSelected key={coffee.id} {...coffee} />;
           })}
         </CoffeesSelectedContainer>
 
@@ -50,5 +56,5 @@ export const CoffeeCard = ({ error, handleSubmit }) => {
         </ConfirmButton>
       </CoffeeCardWrapper>
     </CoffeeCardContainer>
-  )
-}
+  );
+};
