@@ -7,7 +7,7 @@ export const Intro = () => {
   return (
     <IntroContainer>
       <Content>
-        <h1>aaEncontre o café perfeito para qualquer hora do dia</h1>
+        <h1>Encontre o café perfeito para qualquer hora do dia</h1>
         <h6>
           Com o Coffee Delivery você recebe seu café onde estiver, a <br />{' '}
           qualquer hora
