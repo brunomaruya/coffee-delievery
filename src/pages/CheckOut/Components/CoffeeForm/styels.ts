@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 const Box = css`
   padding: 2.5rem;
   background: var(--base-card);
-`
+`;
 
 export const CoffeeFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75em;
   margin-bottom: 15rem;
-`
+`;
 export const AdressContainer = styled.div`
   ${Box};
   border-radius: 10px;
@@ -20,7 +20,7 @@ export const AdressContainer = styled.div`
   svg {
     color: var(--yellow-dark);
   }
-`
+`;
 export const InputsContainer = styled.div`
   display: grid;
   grid-template-columns: 7fr 9fr 5rem;
@@ -33,6 +33,8 @@ export const InputsContainer = styled.div`
   gap: 1rem;
 
   .input {
+    display: flex;
+    align-items: center;
     background: var(--base-input);
     color: var(--base-label);
     font-size: 0.875rem;
@@ -63,12 +65,13 @@ export const InputsContainer = styled.div`
     }
     span {
       font-style: italic;
+      margin-right: 1rem;
     }
     &:active {
       border: 1px solid var(--yellow-dark);
     }
   }
-`
+`;
 
 export const PayMethodContainer = styled.div`
   ${Box}
@@ -80,12 +83,12 @@ export const PayMethodContainer = styled.div`
   svg {
     color: var(--purple);
   }
-`
+`;
 
 export const PayMethodWrapper = styled.div`
   display: flex;
   gap: 0.75rem;
-`
+`;
 export const PayMethod = styled.div`
   width: 100%;
   display: flex;
@@ -98,7 +101,7 @@ export const PayMethod = styled.div`
   &:hover {
     background: var(--base-hover);
   }
-`
+`;
 export const StyledInput = styled.input`
   width: 100%;
   height: 100%;
@@ -106,4 +109,4 @@ export const StyledInput = styled.input`
   background: transparent;
   border: none;
   outline: none;
-`
+`;
